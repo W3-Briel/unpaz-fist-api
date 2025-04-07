@@ -1,0 +1,14 @@
+{
+  "name": "unpaz-fist-api",
+  "version": "1.0.0",
+  "description": "priera api",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "w3-briel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
