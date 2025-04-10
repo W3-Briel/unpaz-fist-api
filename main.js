@@ -33,11 +33,11 @@ APP.get("/api/comments/:userId", (req,res)=>{
         return res.status(400).json({"error": `no existe un comentario de con ese userId: ${userIdParam}`})
     }
 
-    return res.status(200).json(yourComments)
+    return res.status(200).json(yourComments) /*investigue, y dice que por convencion, cada vez que se utiliza un res.status(x) se usan con un return*/
 })
 
 // si el servidor tiene problemas para conectarse, podemos usar el error con una callback para salvar el flujo del programa
 APP.listen(PORT, (error)=> {
     if (error) return console.warn("che no funciona: ",error)
-    return console.info("el servidor esta escuchando en el puerto: ",PORT)
+    console.info("el servidor esta escuchando en el puerto: ",PORT)
 })
