@@ -1,0 +1,68 @@
+[
+    {
+        "id": 0,
+        "userId": 10,
+        "message": "nacio el admin",
+        "createDate": "28/05/2003"
+    },
+    {
+        "id": 1,
+        "userId": 5,
+        "message": "Nuevo comentario en el post principal",
+        "createDate": "15/11/2022"
+    },
+    {
+        "id": 2,
+        "userId": 8,
+        "message": "Tarea 'Revisión de código' completada",
+        "createDate": "02/03/2023"
+    },
+    {
+        "id": 3,
+        "userId": 1,
+        "message": "Usuario #1 inició sesión",
+        "createDate": "20/01/2024"
+    },
+    {
+        "id": 4,
+        "userId": 7,
+        "message": "Se actualizó el perfil del usuario 7",
+        "createDate": "05/08/2021"
+    },
+    {
+        "id": 5,
+        "userId": 3,
+        "message": "Recordatorio: Reunión de equipo mañana",
+        "createDate": "10/04/2023"
+    },
+    {
+        "id": 6,
+        "userId": 10,
+        "message": "Notificación del sistema: Mantenimiento programado",
+        "createDate": "30/09/2023"
+    },
+    {
+        "id": 7,
+        "userId": 2,
+        "message": "¿Alguien sabe dónde está el archivo X?",
+        "createDate": "11/07/2022"
+    },
+    {
+        "id": 8,
+        "userId": 9,
+        "message": "¡Feliz cumpleaños!",
+        "createDate": "25/12/2023"
+    },
+    {
+        "id": 9,
+        "userId": 4,
+        "message": "Documento 'propuesta_final.docx' cargado",
+        "createDate": "18/06/2024"
+    },
+    {
+        "id": 10,
+        "userId": 6,
+        "message": "Solicitud de amistad pendiente",
+        "createDate": "01/02/2024"
+    }
+]
