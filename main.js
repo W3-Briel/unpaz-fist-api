@@ -1,40 +1,29 @@
 //importaciones
 const express = require("express") /*devuelve una funcion express*/
-const comments = require("./localRepo/comments.json")
+const { comments } = require("./localRepo/db")
+const commentsRouters = require("./router/commentsRouter")
 
 //constantes de config
 const APP = express()
-const PORT = 3000
+const PORT = 3000 /* se podria sacar a un archivo de configuraciones*/
 
-//// estaba pensando una logica de routers asi media primitiva
-// const ENDPOINTS = {
-//     "owner": {
-//         "get": "/owner",
-//         "put": "/owner"
-//     }
-// }
+//la aplicacion por defecto leera json en las request
+APP.use(express.json())
 
-//////////////////////////////////////// EXAMPLE
-// endpoint owner para obtener el nombre del dueño de la api
-// APP.get("api/owner",(req,res)=>{
-//     res.status(200)/*codigo de estado de la respuesta*/
-//         .json({"nombre":"angel"})/*usamos este metodo json para respnoder directamente con el formato json, se pueden usar otros con send()*/
+APP.use("/api",commentsRouters)
+
+// //subir un comentario
+// APP.post("/api/comments",(req,res) => {
+
+//     let body = req.body
+//     if (body.id && body.userId && body.message && body.createDate){
+            
+//             comments.push(body)
+//             return res.status(200).json({"message": "se subio el comentario correctamente"})
+//         }
+    
+//     return res.status(400).json({"message":"che todo mal, creo que te falta un atributo en el json"})
 // })
-/////////////////////////////////////// EXAMPLE
-
-//mostrar todos los comentarios
-APP.get("/api/comments",(req,res)=> res.status(200).json(comments) )
-//mostrar comentarios con un userId especifico
-APP.get("/api/comments/:userId", (req,res)=>{
-    let userIdParam = req.params.userId
-    let yourComments = comments.filter((comment) => comment.userId == userIdParam)
-
-    if (yourComments.length === 0){
-        return res.status(400).json({"error": `no existe un comentario de con ese userId: ${userIdParam}`})
-    }
-
-    return res.status(200).json(yourComments) /*investigue, y dice que por convencion, cada vez que se utiliza un res.status(x) se usan con un return*/
-})
 
 // si el servidor tiene problemas para conectarse, podemos usar el error con una callback para salvar el flujo del programa
 APP.listen(PORT, (error)=> {
