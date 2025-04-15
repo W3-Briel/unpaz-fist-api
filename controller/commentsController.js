@@ -1,12 +1,17 @@
 const commentsService = require("../service/commentsService")
-// aca en el controller se deberian integrar los middleware de verificaciones
+// aca en el controller se deberian preparar los status code y preparar la respuesta a mostrar.
 
 const getAll = (req,res)=>{
-    commentsService.getAllServ(res)
+    let comments = commentsService.getAll()
+    return res.status(200).json(comments)
 }
-const getWithUserId = (req,res) => {
-    let {params: {userId}} = req
-    commentsService.getWithUserIdServ(res, {"userId": userId})
+const getByUserId = (req,res) => {
+    let { userId } = req.params
+    let comments = commentsService.getByUserId({"userId": userId})
+    // if (!comments){
+    //     return res.status(400).json({"error": `no existe un comentario de con ese userId: ${userId.userId}`})
+    // }
+    return res.status(200).json(comments)
 }
 
-module.exports = { getAll, getWithUserId }
+module.exports = { getAll, getByUserId }
