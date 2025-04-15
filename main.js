@@ -2,6 +2,7 @@
 const express = require("express") /*devuelve una funcion express*/
 const { comments } = require("./localRepo/db")
 const commentsRouters = require("./router/commentsRouter")
+const errorHandler = require("./middleware/errorHandler")
 
 //constantes de config
 const APP = express()
@@ -11,6 +12,8 @@ const PORT = 3000 /* se podria sacar a un archivo de configuraciones*/
 APP.use(express.json())
 
 APP.use("/api",commentsRouters)
+
+APP.use(errorHandler)
 
 // //subir un comentario
 // APP.post("/api/comments",(req,res) => {
